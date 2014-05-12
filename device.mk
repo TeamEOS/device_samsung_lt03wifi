@@ -37,6 +37,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf \
     $(LOCAL_PATH)/configs/mixer_paths.xml:system/etc/mixer_paths.xml
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    af.fast_track_multiplier=1
+
 # Boot animation
 TARGET_SCREEN_HEIGHT := 2560
 TARGET_SCREEN_WIDTH := 1600
