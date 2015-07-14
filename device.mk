@@ -63,7 +63,7 @@ PRODUCT_PACKAGES += \
 # HW composer
 PRODUCT_PACKAGES += \
     libion \
-    hwcomposer.exynos5 \
+    libcec \
     gralloc.exynos5
 
 # IR
@@ -73,10 +73,6 @@ PRODUCT_PACKAGES += \
 # Keylayouts
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sec_touchscreen.kl:system/usr/keylayout/sec_touchscreen.kl
-
-# Keystore
-PRODUCT_PACKAGES += \
-    keystore.exynos5
 
 # Lights
 PRODUCT_PACKAGES += \
@@ -99,7 +95,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libMcClient \
     libMcRegistry \
-    libPaApi \
     libgdmcprov \
     mcDriverDaemon
 
@@ -108,13 +103,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libpcap \
     tcpdump
-
-# OMX
-PRODUCT_PACKAGES += \
-    libcsc \
-    libExynosOMX_Core \
-    libOMX.Exynos.MP3.Decoder \
-    libstagefrighthw \
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -199,3 +187,7 @@ $(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-he
 
 # call the proprietary setup
 $(call inherit-product-if-exists, vendor/samsung/lt03wifi/lt03wifi-vendor.mk)
+
+# call Samsung LSI board support package
+$(call inherit-product, hardware/samsung_slsi/exynos5-insignal/exynos5.mk)
+$(call inherit-product, hardware/samsung_slsi/exynos5420/exynos5420.mk)
