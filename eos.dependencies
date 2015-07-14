@@ -6,27 +6,19 @@
         "target_path": "kernel/samsung/lt03wifi"
     },
     {
-        "remote": "github",
-        "repository": "cyanogenmod/android_hardware_samsung_slsi_exynos",
-        "revision": "cm-12.1",
+        "repository": "hardware_samsung_slsi_exynos",
         "target_path": "hardware/samsung_slsi/exynos"
     },
     {
-        "remote": "github",
-        "repository": "cyanogenmod/android_hardware_samsung_slsi_exynos5-insignal",
-        "revision": "cm-12.1",
+        "repository": "hardware_samsung_slsi_exynos5-insignal",
         "target_path": "hardware/samsung_slsi/exynos5-insignal"
     },
     {
-        "remote": "github",
-        "repository": "cyanogenmod/android_hardware_samsung_slsi_exynos5420",
-        "revision": "cm-12.1",
+        "repository": "hardware_samsung_slsi_exynos5420",
         "target_path": "hardware/samsung_slsi/exynos5420"
     },
     {
-        "remote": "github",
-        "repository": "cyanogenmod/android_hardware_samsung_slsi_openmax",
-        "revision": "cm-12.1",
+        "repository": "hardware_samsung_slsi_openmax",
         "target_path": "hardware/samsung_slsi/openmax"
     },
     {
