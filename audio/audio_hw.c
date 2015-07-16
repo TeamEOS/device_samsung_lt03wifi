@@ -66,7 +66,7 @@
 struct pcm_config pcm_config_fast = {
     .channels = 2,
     .rate = 48000,
-    .period_size = 240,
+    .period_size = 256,
     .period_count = 2,
     .format = PCM_FORMAT_S16_LE,
 };
@@ -74,14 +74,14 @@ struct pcm_config pcm_config_fast = {
 struct pcm_config pcm_config_deep = {
     .channels = 2,
     .rate = 48000,
-    .period_size = 3840,
+    .period_size = 1024,
     .period_count = 2,
     .format = PCM_FORMAT_S16_LE,
 };
 
 struct pcm_config pcm_config_in = {
     .channels = 2,
-    .rate = 44100,
+    .rate = 48000,
     .period_size = 1024,
     .period_count = 2,
     .format = PCM_FORMAT_S16_LE,
@@ -89,7 +89,7 @@ struct pcm_config pcm_config_in = {
 
 struct pcm_config pcm_config_in_low_latency = {
     .channels = 2,
-    .rate = 44100,
+    .rate = 48000,
     .period_size = 256,
     .period_count = 2,
     .format = PCM_FORMAT_S16_LE,
@@ -114,7 +114,7 @@ struct pcm_config pcm_config_sco_wide = {
 struct pcm_config pcm_config_voice = {
     .channels = 2,
     .rate = 8000,
-    .period_size = 960,
+    .period_size = 1024,
     .period_count = 2,
     .format = PCM_FORMAT_S16_LE,
 };
@@ -122,7 +122,7 @@ struct pcm_config pcm_config_voice = {
 struct pcm_config pcm_config_voice_wide = {
     .channels = 2,
     .rate = 16000,
-    .period_size = 960,
+    .period_size = 1024,
     .period_count = 2,
     .format = PCM_FORMAT_S16_LE,
 };
