@@ -53,7 +53,6 @@
 #define PCM_DEVICE 0
 #define PCM_DEVICE_VOICE 1
 #define PCM_DEVICE_SCO 2
-#define PCM_DEVICE_IN 0
 
 #define MIXER_CARD 0
 
@@ -577,7 +576,7 @@ static int start_input_stream(struct stream_in *in)
 {
     struct audio_device *adev = in->dev;
 
-    in->pcm = pcm_open(PCM_CARD, PCM_DEVICE_IN, PCM_IN, &pcm_config_in);
+    in->pcm = pcm_open(PCM_CARD, PCM_DEVICE, PCM_IN, &pcm_config_in);
 
     if (in->pcm && !pcm_is_ready(in->pcm)) {
         ALOGE("pcm_open() failed: %s", pcm_get_error(in->pcm));
