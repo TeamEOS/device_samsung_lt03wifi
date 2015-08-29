@@ -227,6 +227,12 @@ const struct string_to_enum out_channels_name_to_enum_table[] = {
     STRING_TO_ENUM(AUDIO_CHANNEL_OUT_7POINT1),
 };
 
+/* Wideband call audio check */
+static bool wideband_disabled()
+{
+    return property_get_bool("audio_hal.disable_wideband", false);
+}
+
 /* Routing functions */
 
 static int get_output_device_id(audio_devices_t device)
@@ -368,7 +374,10 @@ static void start_bt_sco(struct audio_device *adev)
 
     ALOGV("%s: Opening SCO PCMs", __func__);
 
-    sco_config = &pcm_config_sco;
+    if (!wideband_disabled())
+        sco_config = &pcm_config_sco_wide;
+    else
+        sco_config = &pcm_config_sco;
 
     adev->pcm_sco_rx = pcm_open(PCM_CARD, PCM_DEVICE_SCO, PCM_OUT,
             sco_config);
@@ -431,7 +440,10 @@ static int start_voice_call(struct audio_device *adev)
 
     ALOGV("%s: Opening voice PCMs", __func__);
 
-    voice_config = &pcm_config_voice;
+    if (!wideband_disabled())
+        voice_config = &pcm_config_voice_wide;
+    else
+        voice_config = &pcm_config_voice;
 
     /* Open modem PCM channels */
     adev->pcm_voice_rx = pcm_open(PCM_CARD, PCM_DEVICE_VOICE, PCM_OUT | PCM_MONOTONIC,
