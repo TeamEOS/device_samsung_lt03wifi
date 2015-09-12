@@ -167,6 +167,8 @@ ENABLE_WEBGL := true
 # WFD
 BOARD_USES_WFD := true
 
+MALLOC_IMPL := dlmalloc
+
 # Wifi
 BOARD_HAVE_SAMSUNG_WIFI          := true
 BOARD_WLAN_DEVICE                := bcmdhd
