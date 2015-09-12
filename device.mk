@@ -189,7 +189,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     af.fast_track_multiplier=1 \
     media.aac_51_output_enabled=true \
     ro.sf.lcd_density=320 \
-    ro.opengles.version=196608 \
+    ro.opengles.version=196609 \
     ro.radio.noril=yes \
     wifi.interface=wlan0
 
