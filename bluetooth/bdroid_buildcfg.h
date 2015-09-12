@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013 The CyanogenMod Project
+ * Copyright (C) 2015 TeamEOS
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,14 +18,5 @@
 #define _BDROID_BUILDCFG_H
 
 #define BTM_DEF_LOCAL_NAME   "SM-P600"
-
-// Networking, Capturing, Object Transfer
-// MAJOR CLASS: COMPUTER
-// MINOR CLASS: LAPTOP
-#define BTA_DM_COD {0x1A, 0x01, 0x0C}
-
-#define BTIF_HF_SERVICES (BTA_HSP_SERVICE_MASK)
-#define BTIF_HF_SERVICE_NAMES { BTIF_HSAG_SERVICE_NAME, NULL }
-#define PAN_NAP_DISABLED TRUE
 
 #endif
