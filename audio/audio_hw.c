@@ -53,6 +53,7 @@
 #define PCM_DEVICE 0
 #define PCM_DEVICE_VOICE 1
 #define PCM_DEVICE_SCO 2
+#define PCM_DEVICE_DEEP 3
 
 #define MIXER_CARD 0
 
@@ -1353,7 +1354,7 @@ static int adev_open_output_stream(struct audio_hw_device *dev,
 
     if (flags & AUDIO_OUTPUT_FLAG_DEEP_BUFFER) {
         out->config = pcm_config_deep;
-        out->pcm_device = PCM_DEVICE;
+        out->pcm_device = PCM_DEVICE_DEEP;
         type = OUTPUT_DEEP_BUF;
     } else {
         out->config = pcm_config;
