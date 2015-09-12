@@ -100,6 +100,10 @@ PRODUCT_PACKAGES += \
     libgdmcprov \
     mcDriverDaemon
 
+# Random number generator
+PRODUCT_PACKAGES += \
+    exyrngd
+
 # Network tools
 
 PRODUCT_PACKAGES += \
@@ -149,10 +153,6 @@ PRODUCT_PACKAGES += \
 # Recovery
 PRODUCT_PACKAGES += \
     init.recovery.universal5420.rc
-
-# Sensors
-PRODUCT_PACKAGES += \
-    sensors.universal5420
 
 # Torch
 PRODUCT_PACKAGES += \
