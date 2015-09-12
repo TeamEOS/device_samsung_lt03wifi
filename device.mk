@@ -184,6 +184,15 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.bq.gpu_to_cpu_unsupported=1
 
+# Misc
+PRODUCT_PROPERTY_OVERRIDES += \
+    af.fast_track_multiplier=1 \
+    media.aac_51_output_enabled=true \
+    ro.sf.lcd_density=320 \
+    ro.opengles.version=196608 \
+    ro.radio.noril=yes \
+    wifi.interface=wlan0
+
 # call dalvik heap config
 $(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
 
