@@ -216,7 +216,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 ###########################################################
 
 PRODUCT_PACKAGES += \
-    consumerir.universal5433 \
+    consumerir.universal5420 \
 
 ###########################################################
 ### TOUCHSCREEN
