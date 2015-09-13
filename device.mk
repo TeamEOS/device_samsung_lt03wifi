@@ -216,7 +216,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 ###########################################################
 
 PRODUCT_PACKAGES += \
-    consumerir.universal5420 \
+    consumerir.universal5433 \
 
 ###########################################################
 ### TOUCHSCREEN
@@ -318,6 +318,8 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
 
 # call dalvik heap config
 $(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk)
+
+$(call inherit-product-if-exists, build/target/product/full.mk)
 
 # call the proprietary setup
 $(call inherit-product-if-exists, vendor/samsung/lt03wifi/lt03wifi-vendor.mk)
