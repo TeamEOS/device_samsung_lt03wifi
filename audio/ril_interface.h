@@ -56,11 +56,6 @@ enum ril_audio_path {
     SOUND_AUDIO_PATH_MIC2,
 };
 
-enum ril_extra_volume {
-    ORIGINAL_PATH,
-    EXTRA_VOLUME_PATH
-};
-
 enum ril_clock_state {
     SOUND_CLOCK_STOP,
     SOUND_CLOCK_START
@@ -90,9 +85,7 @@ int ril_open(struct ril_handle *ril);
 int ril_close(struct ril_handle *ril);
 int ril_set_call_volume(struct ril_handle *ril, enum ril_sound_type sound_type,
                         float volume);
-int ril_set_call_audio_path(struct ril_handle *ril,
-                            enum ril_audio_path path,
-                            enum ril_extra_volume mode);
+int ril_set_call_audio_path(struct ril_handle *ril, enum ril_audio_path path);
 int ril_set_call_clock_sync(struct ril_handle *ril, enum ril_clock_state state);
 int ril_set_mute(struct ril_handle *ril, enum ril_mute_state state);
 int ril_set_two_mic_control(struct ril_handle *ril, enum ril_two_mic_device device, enum ril_two_mic_state state);
