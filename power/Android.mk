@@ -20,7 +20,7 @@ include $(CLEAR_VARS)
 
 LOCAL_MODULE := power.universal5420
 LOCAL_MODULE_RELATIVE_PATH := hw
-LOCAL_SRC_FILES := power.c
+LOCAL_SRC_FILES := power_hal.c
 LOCAL_SHARED_LIBRARIES := liblog
 LOCAL_MODULE_TAGS := optional
 
