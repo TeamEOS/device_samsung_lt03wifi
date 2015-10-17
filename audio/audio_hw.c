@@ -162,6 +162,7 @@ struct audio_device {
     bool tty_mode;
     bool bluetooth_nrec;
     bool two_mic_control;
+    bool wb_amr;
 
     /* RIL */
     struct ril_handle ril;
@@ -277,7 +278,7 @@ static int get_output_device_id(audio_devices_t device)
     }
 }
 
-static int get_input_source_id(audio_source_t source)
+static int get_input_source_id(audio_source_t source, bool wb_amr)
 {
     switch (source) {
     case AUDIO_SOURCE_DEFAULT:
@@ -291,6 +292,9 @@ static int get_input_source_id(audio_source_t source)
     case AUDIO_SOURCE_VOICE_COMMUNICATION:
         return IN_SOURCE_VOICE_COMMUNICATION;
     case AUDIO_SOURCE_VOICE_CALL:
+        if (wb_amr) {
+            return IN_SOURCE_VOICE_CALL_WB;
+        }
         return IN_SOURCE_VOICE_CALL;
     default:
         return IN_SOURCE_NONE;
@@ -309,7 +313,7 @@ static void adev_set_call_audio_path(struct audio_device *adev);
 static void select_devices(struct audio_device *adev)
 {
     int output_device_id = get_output_device_id(adev->out_device);
-    int input_source_id = get_input_source_id(adev->input_source);
+    int input_source_id = get_input_source_id(adev->input_source, adev->wb_amr);
     const char *output_route = NULL;
     const char *input_route = NULL;
     int new_route_id;
@@ -531,6 +535,28 @@ static void stop_voice_call(struct audio_device *adev)
         end_bt_sco(adev);
 
     ALOGV("%s: Successfully closed %d active PCMs", __func__, status);
+}
+
+static void adev_set_wb_amr_callback(void *data, int enable)
+{
+    struct audio_device *adev = (struct audio_device *)data;
+
+    pthread_mutex_lock(&adev->lock);
+    if (adev->wb_amr != enable) {
+        adev->wb_amr = enable;
+
+        /* reopen the modem PCMs at the new rate */
+        if (adev->in_call) {
+            ALOGV("%s: %s Incall Wide Band support",
+                  __func__,
+                  enable ? "Turn on" : "Turn off");
+
+            stop_voice_call(adev);
+            select_devices(adev);
+            start_voice_call(adev);
+        }
+    }
+    pthread_mutex_unlock(&adev->lock);
 }
 
 static void adev_set_call_audio_path(struct audio_device *adev)
@@ -1772,6 +1798,8 @@ static int adev_open(const hw_module_t* module, const char* name,
 
     /* RIL */
     ril_open(&adev->ril);
+    /* register callback for wideband AMR setting */
+    ril_register_set_wb_amr_callback(adev_set_wb_amr_callback, (void *)adev);
 
     *device = &adev->hw_device.common;
 

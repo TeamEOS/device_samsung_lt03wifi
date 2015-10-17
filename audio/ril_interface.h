@@ -20,6 +20,8 @@
 #include "secril-client.h"
 
 #define RIL_OEM_UNSOL_RESPONSE_BASE 11000 // RIL response base index
+#define RIL_UNSOL_WB_AMR_STATE \
+    (RIL_OEM_UNSOL_RESPONSE_BASE + 17)    // RIL AMR state index
 
 struct ril_handle
 {
@@ -48,5 +50,7 @@ int ril_set_mute(struct ril_handle *ril, enum _MuteCondition condition);
 int ril_set_two_mic_control(struct ril_handle *ril,
                             enum __TwoMicSolDevice device,
                             enum __TwoMicSolReport report);
+
+void ril_register_set_wb_amr_callback(void *function, void *data);
 
 #endif
