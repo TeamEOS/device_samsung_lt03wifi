@@ -2,30 +2,13 @@
     {
         "remote": "github",
         "repository": "raymanfx/kernel_samsung_lt03wifi",
-        "revision": "cm-12.1",
+        "revision": "mm6.0",
         "target_path": "kernel/samsung/lt03wifi"
-    },
-    {
-        "repository": "hardware_samsung_slsi_exynos",
-        "target_path": "hardware/samsung_slsi/exynos"
-    },
-    {
-        "repository": "hardware_samsung_slsi_exynos5-insignal",
-        "target_path": "hardware/samsung_slsi/exynos5-insignal"
-    },
-    {
-        "repository": "hardware_samsung_slsi_exynos5420",
-        "target_path": "hardware/samsung_slsi/exynos5420"
-    },
-    {
-        "repository": "hardware_samsung_slsi_openmax",
-        "target_path": "hardware/samsung_slsi/openmax"
     },
     {
         "remote": "github",
         "repository": "raymanfx/vendor_samsung_lt03wifi",
-        "revision": "cm-12.1",
+        "revision": "mm6.0",
         "target_path": "vendor/samsung/lt03wifi"
     }
 ]
-
