@@ -205,7 +205,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/init.exynos.cam.sh:system/etc/init.exynos.cam.sh
 
 PRODUCT_PACKAGES += \
-    camera.universal5420 \
     libhwjpeg
 
 PRODUCT_PROPERTY_OVERRIDES += \
