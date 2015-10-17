@@ -28,6 +28,10 @@
 #define VOLUME_STEPS_DEFAULT  "5"
 #define VOLUME_STEPS_PROPERTY "ro.config.vc_call_vol_steps"
 
+#ifndef RIL_UNSOL_SNDMGR_WB_AMR_REPORT
+#define RIL_UNSOL_SNDMGR_WB_AMR_REPORT 20017
+#endif
+
 /* Audio WB AMR callback */
 void (*_audio_set_wb_amr_callback)(void *, int);
 void *callback_data = NULL;
@@ -69,11 +73,6 @@ static int ril_connect_if_required(struct ril_handle *ril)
         ALOGE("Connect_RILD() failed");
         return -1;
     }
-
-    /* get wb amr status to set pcm samplerate depending on
-       wb amr status when ril is connected. */
-    if(_ril_get_wb_amr)
-        _ril_get_wb_amr(ril->client, ril_set_wb_amr_callback);
 
     return 0;
 }
